@@ -4,5 +4,5 @@
 \alias{global}
 \title{Global Variables and functions}
 \description{
-Defining ariables and functions used in the internal functions
+Defining variables and functions used in the internal functions
 }

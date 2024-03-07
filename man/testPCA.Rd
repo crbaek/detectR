@@ -26,7 +26,7 @@ testPCA(subY1, subY2, L = 2, nlag, diagTF = TRUE)
 
 \strong{L} The number of factors used in the test
 
-\strong{diagTF} If true, the diagonal entry of covarianc matrix is used in testing
+\strong{diagTF} If true, the diagonal entry of covariance matrix is used in testing
 }
 \description{
 This function performs PCA-test for testing the equality of connectivity in two fMRI signals

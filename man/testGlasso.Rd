@@ -24,7 +24,7 @@ testGlasso(
 
 \item{lambda}{two selections possible for optimal parameter of lambda. "bic" finds lambda from bic criteria, or user can directly input the penalty value.}
 
-\item{nboot}{the number of bootstrap sample for pvalue. Default is 100.}
+\item{nboot}{the number of bootstrap sample for p-value. Default is 100.}
 
 \item{n.cl}{number of cores in parallel computing. The default is (machine cores - 1)}
 
@@ -35,9 +35,9 @@ testGlasso(
 \value{
 \strong{pval} The empirical p-value for testing the equality of connectivity structure
 
-\strong{rho} The sequence of penalty paramter based on the combined sample, subY1 and subY2.
+\strong{rho} The sequence of penalty parameter based on the combined sample, subY1 and subY2.
 
-\strong{fit0} Output of glasso for combied sample
+\strong{fit0} Output of glasso for combined sample
 
 \strong{fit1} Output of glasso for subY1
 

@@ -33,11 +33,11 @@ detectSliding(
 
 \item{alpha}{significance level of the test}
 
-\item{nboot}{the number of bootstrap sample for pvalue. Defauls is 199.}
+\item{nboot}{the number of bootstrap sample for p-value. Default is 199.}
 
 \item{n.cl}{number of cores in parallel computing. The default is (machine cores - 1)}
 
-\item{bsize}{block size for the Block Wild Boostrapping. Default is log(length),  "sqrt" uses sqrt(length), "adaptive" deterines block size usign data dependent selection of Andrews}
+\item{bsize}{block size for the Block Wild Bootstrapping. Default is log(length),  "sqrt" uses sqrt(length), "adaptive" determines block size using data dependent selection of Andrews}
 
 \item{bootTF}{determine whether the threshold is calculated from bootstrap or asymptotic}
 
@@ -45,22 +45,22 @@ detectSliding(
 
 \item{diagTF}{include diagonal term of covariance matrix or not}
 
-\item{plotTF}{Draw plot to see test statistic and threshould}
+\item{plotTF}{Draw plot to see test statistic and threshold}
 }
 \value{
 \strong{sW} The test statistic
 
 \strong{L} The number of factors used in the procedure
 
-\strong{q} The estimated vecorized autocovariance on each regime.
+\strong{q} The estimated vectorized autocovariance on each regime.
 
-\strong{crit} The critical vlaue to identify change point
+\strong{crit} The critical value to identify change point
 
 \strong{bsize} The block size of the bootstrap
 
 \strong{diagTF} If TRUE, the diagonal entry of covariance matrix is used in detecting connectivity changes.
 
-\strong{bootTF} If TRUE, boostrap is used to find critical value
+\strong{bootTF} If TRUE, bootstrap is used to find critical value
 
 \strong{scaleTF} If TRUE, the multivariate signal is studentized to have zero mean and unit variance.
 }

@@ -7,7 +7,7 @@
 #' @param design.mat design matrix for analyzing task data
 #' @param plotTF Draw plot to see test statistic and threshold
 #' @param n.cl number of clusters for parallel computing
-#' @return \strong{CLX} Test statistic correspoding to window size arranged in column
+#' @return \strong{CLX} Test statistic corresponding to window size arranged in column
 #' @return \strong{CLXLocalFDR} The Local FDR calculated for each time point
 #' @return \strong{br} The final estimated break points
 #' @examples \donttest{out2= detectMaxChange(changesim, m=c(30, 35, 40, 45, 50), n.cl=1)}
@@ -155,7 +155,7 @@ detectMaxChange <- function(Y, m=c(30, 40, 50), margin = 30, thre.localfdr = 0.2
   determineCHGPT <- function(localfdr, thre, ChunkSize = 10) {
     ind <- which(localfdr <= thre)
     if (is.na(ind[1])) {
-      print("No change point has been detected.")
+      message("No change point has been detected.")
       return(0)
     } else {
       begining <- ind[c(1, which(diff(ind) > ChunkSize) + 1)]
@@ -293,7 +293,6 @@ detectMaxChange <- function(Y, m=c(30, 40, 50), margin = 30, thre.localfdr = 0.2
   }
 
   if (plotTF) {
-  graphics::par(mfrow = c(1, 1))
   stats::plot.ts(localfdr, main = "Max", xlab = "Time", ylab = "Local FDR")
   graphics::abline(h = thre.localfdr, col = 2, lty = 2)
   graphics::abline(v = CHGPT, col = "blue")
@@ -301,13 +300,7 @@ detectMaxChange <- function(Y, m=c(30, 40, 50), margin = 30, thre.localfdr = 0.2
 
 out <- list()
   out$CLX = test.stat
-#  out$CLXZ = z
-#  out$CLXZ.PC = pc1
-#  out$CLXEdge = N.edge
   out$CLXLocalFDR = localfdr
-#  out$CLXBF = BF
   out$br = CHGPT
-#  out$task.change = task.change
-
   return(out)
 }

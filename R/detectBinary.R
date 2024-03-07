@@ -4,23 +4,23 @@
 #' @param Y data: Y = length*dim
 #' @param Del Delta away from the boundary restriction
 #' @param L the number of factors
-#' @param q methods in calculating long-run variance of the test statistic. Defaul is "fixed" = length^(1/3). Adaptive selection method is also available via "andrews", or user specify the length
+#' @param q methods in calculating long-run variance of the test statistic. Default is "fixed" = length^(1/3). Adaptive selection method is also available via "andrews", or user specify the length
 #' @param alpha significance level of the test
-#' @param nboot the number of bootstrap sample for pvalue. Defauls is 199.
+#' @param nboot the number of bootstrap sample for p-value. Default is 199.
 #' @param n.cl number of cores in parallel computing. The default is (machine cores - 1)
-#' @param bsize block size for the Block Wild Boostrapping. Default is log(length),  "sqrt" uses sqrt(length), "adaptive" deterines block size usign data dependent selection of Andrews
+#' @param bsize block size for the Block Wild Bootstrapping. Default is log(length),  "sqrt" uses sqrt(length), "adaptive" determines block size using data dependent selection of Andrews
 #' @param bootTF determine whether the threshold is calculated from bootstrap or asymptotic
 #' @param scaleTF scale the variance into 1
 #' @param diagTF include diagonal term of covariance matrix or not
 #' @param plotTF Draw plot to see test statistic and threshold
-#' @return \strong{tstathist} The complete history of test tsatistic
-#' @return \strong{Brhist} The sequence of breakspoints found from binay splitting
+#' @return \strong{tstathist} The complete history of test statistics.
+#' @return \strong{Brhist} The sequence of breakpoints found from binary splitting
 #' @return \strong{L} The number of factors used in the procedure
-#' @return \strong{q} The estimated vecorized autocovariance on each regime.
-#' @return \strong{crit} The critical vlaue to identify change point
+#' @return \strong{q} The estimated vectorized autocovariance on each regime.
+#' @return \strong{crit} The critical value to identify change point
 #' @return \strong{bsize} The block size of the bootstrap
 #' @return \strong{diagTF} If TRUE, the diagonal entry of covariance matrix is used in detecting connectivity changes.
-#' @return \strong{bootTF} If TRUE, boostrap is used to find critical value
+#' @return \strong{bootTF} If TRUE, bootstrap is used to find critical value
 #' @return \strong{scaleTF} If TRUE, the multivariate signal is studentized to have zero mean and unit variance.
 #' @examples \donttest{out3= detectBinary(changesim, L=2, n.cl=1)}
 #' @export

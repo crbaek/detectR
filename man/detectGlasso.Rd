@@ -25,7 +25,7 @@ detectGlasso(
 
 \item{lambda}{two selections possible for optimal parameter of lambda. "bic" finds lambda from bic criteria, or user can directly input the penalty value}
 
-\item{nboot}{the number of bootstrap sample for pvalue. Default is 100.}
+\item{nboot}{the number of bootstrap sample for p-value. Default is 100.}
 
 \item{n.cl}{number of cores in parallel computing. The default is (machine cores - 1)}
 
@@ -40,17 +40,17 @@ A list with component
 
 \strong{br} The estimated breakpoints including boundary (0, T)
 
-\strong{brhist} The sequence of breakspoints found from binay splitting
+\strong{brhist} The sequence of breakpoints found from binary splitting
 
 \strong{diffhist} The history of BIC reduction on each step
 
-\strong{W} The estimated vecorized autocovariance on each regime.
+\strong{W} The estimated vectorized autocovariance on each regime.
 
-\strong{WI} The estimated vecorized precision matrix on each regime.
+\strong{WI} The estimated vectorized precision matrix on each regime.
 
 \strong{lambda} The penalty parameter estimated on each regime.
 
-\strong{pvalhist} The empirical p-values on each binary spltting.
+\strong{pvalhist} The empirical p-values on each binary splitting.
 
 \strong{fitzero} Detailed output at first stage. Useful in producing plot.
 }

@@ -6,6 +6,7 @@ Authors@R: c(
     person("Changryong", "Baek", , "crbaek@skku.edu", role = c("aut", "cre")),
     person("Mattew", "Gampe", role = "aut"),
     person("Kathleen M.", "Gates", role = "aut"),
+    person("Seok-Oh", "Jeong", role = "aut"),
     person("Vladas", "Pipiras", role = "aut")
   )
 Maintainer: Changryong Baek <crbaek@skku.edu>
@@ -21,4 +22,4 @@ Imports: signal, lavaan, doParallel, glasso, LogConcDEAD, foreach,
         parallel
 Depends: R (>= 2.10)
 URL: https://github.com/crbaek/detectR
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1

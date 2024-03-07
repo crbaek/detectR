@@ -10,7 +10,7 @@
 #' @return \strong{pval} Returns the p-value
 #' @return \strong{df} The degree of freedom in PCA-best test
 #' @return \strong{L} The number of factors used in the test
-#' @return \strong{diagTF} If true, the diagonal entry of covarianc matrix is used in testing
+#' @return \strong{diagTF} If true, the diagonal entry of covariance matrix is used in testing
 #' @examples test3 = testPCA(testsim$X, testsim$Y, L=2)
 #' @export
 

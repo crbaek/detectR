@@ -6,13 +6,13 @@
 #' @param subY2 a sample of size length*dim
 #' @param p  Gep(p) distribution controls the size of stationary bootstrap. The mean block length is 1/p
 #' @param lambda two selections possible for optimal parameter of lambda. "bic" finds lambda from bic criteria, or user can directly input the penalty value.
-#' @param nboot the number of bootstrap sample for pvalue. Default is 100.
+#' @param nboot the number of bootstrap sample for p-value. Default is 100.
 #' @param n.cl number of cores in parallel computing. The default is (machine cores - 1)
 #' @param bound bound of bic search in "bic" rule. Default is (.001, 1)
 #' @param gridTF Utilize a grid search to optimize hyperparameters
 #' @return \strong{pval} The empirical p-value for testing the equality of connectivity structure
-#' @return \strong{rho} The sequence of penalty paramter based on the combined sample, subY1 and subY2.
-#' @return \strong{fit0} Output of glasso for combied sample
+#' @return \strong{rho} The sequence of penalty parameter based on the combined sample, subY1 and subY2.
+#' @return \strong{fit0} Output of glasso for combined sample
 #' @return \strong{fit1} Output of glasso for subY1
 #' @return \strong{fit2} Output of glasso for subY2
 #' @examples test1= testGlasso(testsim$X, testsim$Y, n.cl=1)
@@ -26,8 +26,6 @@ testGlasso <- function(subY1, subY2, p, lambda = "bic", nboot = 100, n.cl, bound
     p <- .2
   }
 
-  #library(glasso)
-  #library(doParallel)
 
   ## Data dimension is Tt*q
   ### Auxilary functions
@@ -39,7 +37,7 @@ testGlasso <- function(subY1, subY2, p, lambda = "bic", nboot = 100, n.cl, bound
     cy <- stats::cov(y[id, ])
     n <- nrow(y);
 
-    
+
     if (lambda == "bic") {
       bic.rho <- function(rho, cy, tj) {
         B <- 0
@@ -96,7 +94,6 @@ testGlasso <- function(subY1, subY2, p, lambda = "bic", nboot = 100, n.cl, bound
     out.zero$debiasTF= debiasTF;
     out.zero$rho <- rho
     out.zero$wiold <- out$wi
-    options(warn = 0)
     return(out.zero)
   }
 

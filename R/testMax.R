@@ -1,15 +1,15 @@
 #' @name testMax
 #' @title Max-type test for for the equality of connectivity
-#' @description This function produces three test results based on max-type block boostrap (BMB), long-run variance block boostrapping with lagged-window estimator (LVBWR) and sum-type block bootstrap (BSUM). See Baek el al. (2019) for details.
+#' @description This function produces three test results based on max-type block bootstrap (BMB), long-run variance block bootstrapping with lagged-window estimator (LVBWR) and sum-type block bootstrap (BSUM). See Baek el al. (2019) for details.
 #' @param subY1 a sample of size length*dim
 #' @param subY2 a sample of size length*dim
 #' @param diagTF include diagonal term of covariance matrix or not
 #' @param nboot number of bootstrap sample, default is 2000
 #' @param q methods in calculating long-run variance of the test statistic. Default is "fixed" = length^(1/3) or "andrews" implements data adaptive selection, or user specify the length
 #' @param n.cl number of cores in parallel computing. The default is (machine cores - 1)
-#' @return \strong{tstat} Test statisticlue for testing the equality of connectivity structure
-#' @return \strong{pval} The pvalue for testing the equality of connectivity structure
-#' @return \strong{q} The tuning parameter used in calulating long-run variance
+#' @return \strong{tstat} Test statistic for testing the equality of connectivity structure
+#' @return \strong{pval} The p-value for testing the equality of connectivity structure
+#' @return \strong{q} The tuning parameter used in calculating long-run variance
 #' @examples \donttest{test2 = testMax(testsim$X, testsim$Y, n.cl=1)}
 #' @export
 

@@ -30,7 +30,7 @@ detectMaxChange(
 \item{n.cl}{number of clusters for parallel computing}
 }
 \value{
-\strong{CLX} Test statistic correspoding to window size arranged in column
+\strong{CLX} Test statistic corresponding to window size arranged in column
 
 \strong{CLXLocalFDR} The Local FDR calculated for each time point
 

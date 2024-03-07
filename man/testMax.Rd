@@ -20,14 +20,14 @@ testMax(subY1, subY2, diagTF = TRUE, nboot, q = "fixed", n.cl)
 \item{n.cl}{number of cores in parallel computing. The default is (machine cores - 1)}
 }
 \value{
-\strong{tstat} Test statisticlue for testing the equality of connectivity structure
+\strong{tstat} Test statistic for testing the equality of connectivity structure
 
-\strong{pval} The pvalue for testing the equality of connectivity structure
+\strong{pval} The p-value for testing the equality of connectivity structure
 
-\strong{q} The tuning parameter used in calulating long-run variance
+\strong{q} The tuning parameter used in calculating long-run variance
 }
 \description{
-This function produces three test results based on max-type block boostrap (BMB), long-run variance block boostrapping with lagged-window estimator (LVBWR) and sum-type block bootstrap (BSUM). See Baek el al. (2019) for details.
+This function produces three test results based on max-type block bootstrap (BMB), long-run variance block bootstrapping with lagged-window estimator (LVBWR) and sum-type block bootstrap (BSUM). See Baek el al. (2019) for details.
 }
 \examples{
 \donttest{test2 = testMax(testsim$X, testsim$Y, n.cl=1)}

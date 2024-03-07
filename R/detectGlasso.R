@@ -5,22 +5,22 @@
 #' @param Del Delta away from the boundary restriction
 #' @param p  Gep(p) distribution controls the size of stationary bootstrap. The mean block length is 1/p
 #' @param lambda two selections possible for optimal parameter of lambda. "bic" finds lambda from bic criteria, or user can directly input the penalty value
-#' @param nboot the number of bootstrap sample for pvalue. Default is 100.
+#' @param nboot the number of bootstrap sample for p-value. Default is 100.
 #' @param n.cl number of cores in parallel computing. The default is (machine cores - 1)
 #' @param bound bound of bic search in "bic" rule. Default is (.001, 1)
 #' @param gridTF minimum bic is found by grid search. Default is FALSE
 #' @param plotTF Draw plot to see test statistic
 #' @return A list with component
 #' @return \strong{br} The estimated breakpoints including boundary (0, T)
-#' @return \strong{brhist} The sequence of breakspoints found from binay splitting
+#' @return \strong{brhist} The sequence of breakpoints found from binary splitting
 #' @return \strong{diffhist} The history of BIC reduction on each step
-#' @return \strong{W} The estimated vecorized autocovariance on each regime.
-#' @return \strong{WI} The estimated vecorized precision matrix on each regime.
+#' @return \strong{W} The estimated vectorized autocovariance on each regime.
+#' @return \strong{WI} The estimated vectorized precision matrix on each regime.
 #' @return \strong{lambda} The penalty parameter estimated on each regime.
-#' @return \strong{pvalhist} The empirical p-values on each binary spltting.
+#' @return \strong{pvalhist} The empirical p-values on each binary splitting.
 #' @return \strong{fitzero} Detailed output at first stage. Useful in producing plot.
 #' @examples \donttest{out1= detectGlasso(changesim, p=.2, n.cl=1)}
-#' @export 
+#' @export
 
 detectGlasso <- function(Y, Del, p, lambda = "bic", nboot = 100, n.cl, bound = c(.001, 1), gridTF=FALSE, plotTF=TRUE) {
 
@@ -34,10 +34,9 @@ detectGlasso <- function(Y, Del, p, lambda = "bic", nboot = 100, n.cl, bound = c
   # n.cl: number of cores in parallel computing. The default is (machine cores - 1)
   # bound: bound of bic search in "bic" rule. Default is (.001, 1)
   # gridTF: whether rho from BIC is found by grid search
-  # debiasTF: wheter debiasing from graphical lasso estimates
-  regpar <- par(no.readonly = TRUE)
-  on.exit(par(regpar))
-  
+  # debiasTF: whether debiasing from graphical lasso estimates
+
+
   if (missing(n.cl)) {
     n.cl <- parallel::detectCores(logical = TRUE) - 1
   }
@@ -59,7 +58,7 @@ detectGlasso <- function(Y, Del, p, lambda = "bic", nboot = 100, n.cl, bound = c
     cy <- stats::cov(Y[id, ])
     n <-  nrow(Y);
 
-    
+
     if (lambda == "bic") {
       bic.rho <- function(rho, cy, tj) {
         B <- 0
@@ -103,7 +102,7 @@ detectGlasso <- function(Y, Del, p, lambda = "bic", nboot = 100, n.cl, bound = c
       out.zero <- glasso::glasso(cy, 0, zero = zeroid, trace = FALSE, maxit=100)
       ell1 <- 1 * (out.zero$wi != 0)
       diag(ell1) <- rep(0, nrow(out.zero$wi))
-            det.value <- sum(log(svd(out.zero$wi)$d));
+      det.value <- sum(log(svd(out.zero$wi)$d));
       out.zero$nlik <- sum(diag((tj-1)*cy%*%out.zero$wi)) - tj*det.value ;
       B <- out.zero$nlik + sum(ell1)*(log(n))/2;
       out.zero$BIC <- B;
@@ -119,7 +118,6 @@ detectGlasso <- function(Y, Del, p, lambda = "bic", nboot = 100, n.cl, bound = c
 
     out.zero$debiasTF= debiasTF;
     out.zero$rho <- rho
-    options(warn = 0)
     return(out.zero)
   }
 
@@ -276,7 +274,6 @@ detectGlasso <- function(Y, Del, p, lambda = "bic", nboot = 100, n.cl, bound = c
   }
 
   if(plotTF){
-      graphics::par(cex = .7)
       plot(fitzero$time.seq, fitzero$BIC, type = "l", ylab = "Negative log-likelihood", xlab = "Time")
       graphics::title("DCR")
       graphics::abline(v = br, col = "blue")

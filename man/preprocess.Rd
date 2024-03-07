@@ -22,11 +22,11 @@ model = NULL)
 "/t" indicates tab-delimited, "," indicates comma delimited. Only necessary
 to specify if reading data in from physical directory.}
 
-\item{signal}{(optional) a character vector containg the names of variables that contain signal i.e., which variables to use to detect change point. The default
+\item{signal}{(optional) a character vector containing the names of variables that contain signal i.e., which variables to use to detect change point. The default
 (NULL) indicates all variables except those in 'noise' argument are considered signal. Example: signal = c("dDMN4", "vDMN5", "vDMN1",}
 
-\item{noise}{(optional) a character vector containg the names of variables that contain noise. The signal variables will be regressed on these variables and residuals
-used in change point detection. The deault (NULL) indicates there are no noise variables. Example: noise = c("White.Matter1", "CSF1")}
+\item{noise}{(optional) a character vector containing the names of variables that contain noise. The signal variables will be regressed on these variables and residuals
+used in change point detection. The default (NULL) indicates there are no noise variables. Example: noise = c("White.Matter1", "CSF1")}
 
 \item{butterfreq}{(optional) bandpass filter frequency ranges. Example: c(.04,.4)}
 
